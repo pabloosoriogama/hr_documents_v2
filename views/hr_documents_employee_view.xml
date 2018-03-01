@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+	 <data>
+	 	<record id="inherit_hr_documents" model="ir.ui.view">
+	 		<field name="name">hr.employee.form.documents.inherit</field>
+	 		<field name="model">hr.employee</field>
+            <field name="type">form</field>
+            <field name="inherit_id" ref="hr.view_employee_form" />
+            <field name="arch" type="xml">
+                <xpath expr="//page[@name='medical']" position="after">
+                    <page string="Documentos" name="e_documents">
+                        <group name="group_documents">
+                            <group name="group_documents_left" >
+                                <field name="hr_doc_rfc"/>
+                                <field name="hr_doc_curp"/>
+                                <field name="hr_doc_ife"/>
+                                <field name="hr_doc_nss"/>
+                                <field name="hr_doc_acta"/>
+                                <field name="hr_doc_comp_dom"/>
+                                <field name="hr_doc_canp"/>
+                            </group>
+                            <group name="group_documents_right" >
+                                <field name="hr_doc_cv"/>
+                                <field name="hr_doc_comp_est"/>
+                                <field name="hr_doc_car_reco"/>
+                                <field name="hr_doc_reg_induc"/>
+                                <field name="hr_doc_req_per"/>
+                                <field name="hr_doc_diplo"/>
+                            </group>
+                        </group>
+                    </page>
+                </xpath>
+            </field>
+	    </record>
+         <record id="new_field_account" model="ir.ui.view">
+            <field name="name">account.form.add.text.field</field>
+            <field name="model">hr.employee</field>
+            <field name="inherit_id" ref="hr.view_employee_form"/>
+            <field name="arch" type="xml">
+              <xpath expr="//group[@name='timesheet']" position="inside">
+                     <field name="account_id" />
+              </xpath>
+            </field>
+        </record>
+         <record id="new_field_nacionality" model="ir.ui.view">
+            <field name="name">nacionality.form.add.text.field</field>
+            <field name="model">hr.employee</field>
+            <field name="inherit_id" ref="hr.view_employee_form"/>
+            <field name="arch" type="xml">
+              <xpath expr="//field[@name='country_id']" position="after">
+                     <field name="x_nationality" />
+              </xpath>
+              <xpath expr="//field[@name='passport_id']" position="after">
+                     <field name="rfc_id" />
+                     <field name="curp_id" />
+              </xpath>
+                <xpath expr="//field[@name='country_id']" position="attributes">
+                    <attribute name="string">País</attribute>
+                </xpath>
+            </field>
+        </record>
+     </data>
+</openerp>
